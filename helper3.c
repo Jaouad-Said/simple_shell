@@ -63,11 +63,11 @@ void ctrl_c_handler(int signum)
 }
 
 /**
- * read_line - Reads a line from input and stores it in a malloced buffer.
+ * get_line - Reads a line from input and stores it in a malloced buffer.
  * @str: Pointer to the buffer where the line will be stored.
  * Return: Number of characters read or -1 on error.
  */
-ssize_t read_line(char **str)
+ssize_t get_line(char **str)
 {
 	ssize_t i = 0, size = 0, t = 0, t2 = 0, n = 0;
 	char buffer[1024];
