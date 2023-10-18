@@ -39,8 +39,8 @@ int check_file_exists(char *s);
 char *build_executable_path(char **tokens);
 int execute_with_path(char **tokens, char *path, char *args);
 char *build_variable(char *var_name, char *var_value);
-int set_environment(char *var_name, char *var_value);
-int unset_environment(char *var_name);
+int set_environment_variable(char *var_name, char *var_value);
+int unset_environment_variable(char *var_name);
 char *string_duplicate(char *str);
 
 #endif
