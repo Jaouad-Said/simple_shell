@@ -65,7 +65,7 @@ int execute_with_path(char **tokens, char *path, char *args)
 			error_msg1 = string_concatenate(*tokens, ": No such file or directory\n");
 			error_msg2 = string_concatenate(args, ":");
 			error_msg3 = string_concatenate(error_msg2, error_msg1);
-			write(STDERR_FILENO, error_msg3, _strlen(error_msg3));
+			write(STDERR_FILENO, error_msg3, string_length(error_msg3));
 			free(tokens);
 			exit(EXIT_FAILURE);
 		}
