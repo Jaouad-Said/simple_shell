@@ -32,7 +32,7 @@ void exit_simple_shell(char **tokens, char *line);
 void ctrl_c_handler(int signum);
 int is_delimiter(char c, const char *delim);
 char *custom_strtok(char *src, const char *delim);
-char *string_copy(char *dest, char *src);
+char string_copy(char *dest, char *src);
 ssize_t get_line(char **str);
 int handle_path(char **tokens);
 int check_file_exists(char *s);
