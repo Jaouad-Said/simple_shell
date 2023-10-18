@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	while (status == 0)
 	{
 		prompt();
-		line = read_line();
+		line = get_line();
 
 		if (_strcmp(line, "\n") == 0)
 		{
