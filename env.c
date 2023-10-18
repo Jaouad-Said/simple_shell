@@ -24,10 +24,10 @@ int set_environment_variable(char *var_name, char *var_value)
 
 			/* Clear the memory before writing */
 			environ[i] = NULL;
-			environ[i] = _strdup(new_var);
+			environ[i] = string_duplicate(new_var);
 
 			free(environ[i]);
-			environ[i] = _strdup(new_var);
+			environ[i] = string_duplicate(new_var);
 
 			free(new_var);
 			return (0);
@@ -38,7 +38,7 @@ int set_environment_variable(char *var_name, char *var_value)
 	/* Add a new variable if it doesn't exist */
 	new_var = build_variable(var_name, var_value);
 	free(environ[i]);
-	environ[i] = _strdup(new_var);
+	environ[i] = string_duplicate(new_var);
 	i++;
 	environ[i] = NULL;
 	new_var = NULL;
