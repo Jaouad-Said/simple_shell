@@ -15,13 +15,13 @@ int run(char **tokens, char *args)
 	int status;
 	char *path;
 
-	if (is_builtIn(*tokens) == 0)
+	if (_isBuiltIn(*tokens) == 0)
 	{
-		status = execute_builtin(tokens);
+		status = _executeBuiltIn(tokens);
 		return (status);
 	}
 
-	path = build_executable_path(tokens);
+	path = path_builder(tokens);
 	if (path != NULL)
 	{
 		status = execute_with_path(tokens, path, args);
@@ -38,10 +38,10 @@ int run(char **tokens, char *args)
 	{
 		if (execve(tokens[0], tokens, NULL) == -1)
 		{
-			err1 = string_concatenate(*tokens, ": No such file or directory\n");
-			err2 = string_concatenate(args, ":");
-			err3 = string_concatenate(err2, err1);
-			write(STDERR_FILENO, err3, string_length(err3));
+			err1 = _strcat(*tokens, ": No such file or directory\n");
+			err2 = _strcat(args, ":");
+			err3 = _strcat(err2, err1);
+			write(STDERR_FILENO, err3, _strlen(err3));
 			free(tokens);
 			exit(EXIT_FAILURE);
 		}

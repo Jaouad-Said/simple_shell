@@ -53,14 +53,14 @@ int c_atoi(char *s)
 }
 
 /**
- * string_copy - Copies the string pointed to by src,
+ * _strcpy - Copies the string pointed to by src,
  * including the terminating null byte (\0),
  * to the buffer pointed to by dest.
  * @dest: Copy source to this buffer.
  * @src: This is the source to copy.
  * Return: Copy of the original source.
  */
-char *string_copy(char *dest, char *src)
+char *_strcpy(char *dest, char *src)
 {
 	int i, len;
 

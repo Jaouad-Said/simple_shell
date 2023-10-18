@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * string_length - Returns the length of a string.
+ * _strlen - Returns the length of a string.
  * @s: Pointer to the string.
  *
  * Return: Length of s.
  */
-int string_length(char *s)
+int _strlen(char *s)
 {
 	int index = 0;
 
@@ -19,16 +19,16 @@ int string_length(char *s)
 }
 
 /**
- * string_concatenate - Concatenates two strings.
+ * _strcat - Concatenates two strings.
  * @dest: Pointer to the destination string.
  * @src: Pointer to the source string to append to dest.
  *
  * Return: Pointer to dest.
  */
-char *string_concatenate(char *dest, char *src)
+char *_strcat(char *dest, char *src)
 {
 	char *destAddress = dest;
-	int destLen = string_length(dest);
+	int destLen = _strlen(dest);
 
 	destAddress = destAddress + destLen;
 
@@ -64,12 +64,12 @@ unsigned int count_white_space(char *s)
 }
 
 /**
- * string_tokenize - Splits a string into words.
+ * _strtotokens - Splits a string into words.
  * @str: Pointer to the string.
  *
  * Return: Pointer to an array of words.
  */
-char **string_tokenize(char *str)
+char **_strtotokens(char *str)
 {
 	int i = 0;
 	const char delimiter[] = " \t\n";

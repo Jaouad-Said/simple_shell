@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 
 	(void)argc;
 
-	signal(SIGINT, ctrl_c_handler);
+	signal(SIGINT, ctrlc);
 	status = 0;
 
 	while (status == 0)
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 			free(line);
 			continue;
 		}
-		tokens = string_tokenize(line);
+		tokens = _strtotokens(line);
 
 		if (tokens[0] == NULL)
 		{
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 		}
 		if (_strcmp(tokens[0], "exit") == 0)
 		{
-			exit_simple_shell(tokens, line);
+			_exitSimpleShell(tokens, line);
 		}
 		else
 		{

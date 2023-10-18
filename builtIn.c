@@ -1,10 +1,10 @@
 #include "shell.h"
 
 /**
-  * print_environment - Displays the current working environment's variables.
+  * _printenv - Displays the current working environment's variables.
   * Return: void.
   */
-void print_environment(void)
+void _printenv(void)
 {
 	int i = 0;
 
@@ -16,11 +16,11 @@ void print_environment(void)
 }
 
 /**
- * is_builtin - Checks if a given token represents a built-in shell command.
+ * _isBuiltIn - Checks if a given token represents a built-in shell command.
  * @str: Pointer to the string to check.
  * Return: 0 if it's a built-in command, else 1.
  */
-int is_builtin(char *str)
+int _isBuiltIn(char *str)
 {
     /* Compare the string with known built-in commands */
 	if ((_strcmp(str, "env")) == 0)
@@ -37,16 +37,16 @@ int is_builtin(char *str)
 }
 
 /**
- * execute_builtin - Executes a built-in shell function.
+ * _executeBuiltIn - Executes a built-in shell function.
  * @tokens: Double pointer to command tokens.
  * Return: 0 if the execution is successful.
  */
-int execute_builtin(char **tokens)
+int _executeBuiltIn(char **tokens)
 {
     /* Check if the first token corresponds to a built-in command */
 	if ((_strcmp(*tokens, "env")) == 0)
 	{
-		print_environment();
+		_printenv();
 		return (0);
 	}
 	if ((_strcmp(*tokens, "setenv")) == 0)
@@ -54,7 +54,7 @@ int execute_builtin(char **tokens)
 		/* Check if the user provides the correct format */
 		if (tokens[1] && tokens[2])
 		{
-			set_environment_variable(tokens[1], tokens[2]);
+			_setenv(tokens[1], tokens[2]);
 			return (0);
 		}
 		/* Otherwise, print an error message */
@@ -66,7 +66,7 @@ int execute_builtin(char **tokens)
 		/* Check for VAR_NAME to unset */
 		if (tokens[1])
 		{
-			unset_environment_variable(tokens[1]);
+			_unsetenv(tokens[1]);
 			return (0);
 		}
 		/* Otherwise, display an error message */
@@ -79,12 +79,12 @@ int execute_builtin(char **tokens)
 }
 
 /**
- * exit_simple_shell - Exits the shell and frees allocated memory.
+ * _exitSimpleShell - Exits the shell and frees allocated memory.
  * @tokens: Double pointer to words split from the command line.
  * @line: Pointer to the string obtained using getLine().
  * Return: void.
  */
-void exit_simple_shell(char **tokens, char *line)
+void _exitSimpleShell(char **tokens, char *line)
 {
 	int status;
 

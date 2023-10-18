@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * is_delimiter - Checks if a character is a delimiter.
+ * is_delim - Checks if a character is a delimiter.
  * @c: The character to check.
  * @delim: A string containing delimiters.
  * Return: 1 if 'c' is a delimiter, 0 otherwise.
  */
-int is_delimiter(char c, const char *delim)
+int is_delim(char c, const char *delim)
 {
 	while (delim && *delim)
 	{
@@ -20,12 +20,12 @@ int is_delimiter(char c, const char *delim)
 }
 
 /**
- * custom_strtok - Custom implementation of strtok, which tokenizes a string.
+ * _strtok - Custom implementation of strtok, which tokenizes a string.
  * @src: The string to tokenize.
  * @delim: A string containing delimiters.
  * Return: Pointer to the next token or NULL if no more tokens are found.
  */
-char *custom_strtok(char *src, const char *delim)
+char *_strtok(char *src, const char *delim)
 {
 	static char *s;
 	static unsigned int i;
@@ -37,7 +37,7 @@ char *custom_strtok(char *src, const char *delim)
 		s = src;
 		for (i = 0; s[i]; i++)
 		{
-			if (is_delimiter(s[i], delim))
+			if (is_delim(s[i], delim))
 				s[i] = '\0';
 		}
 	}
@@ -45,18 +45,18 @@ char *custom_strtok(char *src, const char *delim)
 	if (s == NULL || *s == '\0')
 		return (NULL);
 	result = s;
-	i = string_length(s);
-	if (s[i] == '\0' && string_length(s) > 0)
+	i = _strlen(s);
+	if (s[i] == '\0' && _strlen(s) > 0)
 		is_space = 1;
-	s = s + string_length(s) + is_space;
+	s = s + _strlen(s) + is_space;
 	return (result);
 }
 
 /**
- * ctrl_c_handler - Handles the Ctrl+C signal.
+ * ctrlc - Handles the Ctrl+C signal.
  * @signum: The signal number received (unused in this function).
  */
-void ctrl_c_handler(int signum)
+void ctrlc(int signum)
 {
 	(void)signum;
 	write(STDOUT_FILENO, "\n#cisfun$ ", 10);
@@ -91,14 +91,14 @@ ssize_t get_line(char **str)
 		{
 			i++;
 			*str = malloc(sizeof(char) * i);
-			*str = string_copy(*str, buffer);
+			*str = _strcpy(*str, buffer);
 			size = i;
 			t = 1;
 		}
 		else
 		{
 			size += i;
-			*str = string_concatenate(*str, buffer);
+			*str = _strcat(*str, buffer);
 		}
 	}
 
@@ -106,11 +106,11 @@ ssize_t get_line(char **str)
 }
 
 /**
- * string_duplicate - Duplicates a string.
+ * _strdup - Duplicates a string.
  * @str: The string to duplicate.
  * Return: Pointer to the duplicated string in allocated memory.
  */
-char *string_duplicate(char *str)
+char *_strdup(char *str)
 {
 	char *duplicate_str;
 	int i, len = 0;
