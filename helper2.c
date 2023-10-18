@@ -7,7 +7,7 @@
  */
 int custom_putchar(char c)
 {
-    return (write(1, &c, 1));
+	return (write(1, &c, 1));
 }
 
 /**
@@ -18,38 +18,38 @@ int custom_putchar(char c)
  */
 int custom_strcmp(char *s1, char *s2)
 {
-    int i = 0;
+	int i = 0;
 
-    while (s1[i] != '\0' || s2[i] != '\0')
-    {
-        if (s1[i] != s2[i])
-            return (s1[i] - s2[i]);
-        i++;
-    }
-    
-    return (0);
+	while (s1[i] != '\0' || s2[i] != '\0')
+	{
+		if (s1[i] != s2[i])
+		return (s1[i] - s2[i]);
+		i++;
+	}
+
+	return (0);
 }
 
 /**
  * custom_atoi - Custom atoi function converts a string to an integer.
  * @s: The input string.
- * Return: The converted number if successful, -1 if the string contains non-numeric characters.
+ * Return: The converted number if successful.
  */
 int custom_atoi(char *s)
 {
-    int i = 0;
-    unsigned int num = 0;
+	int i = 0;
+	unsigned int num = 0;
 
-    while (s[i] != '\0')
-    {
-        if (s[i] >= '0' && s[i] <= '9') /* Calculate the number */
-            num = num * 10 + (s[i] - '0');
-        if (s[i] > '9' || s[i] < '0') /* Account for non-numeric characters */
-            return (-1);
-        i++;
-    }
-    
-    return (num);
+	while (s[i] != '\0')
+	{
+		if (s[i] >= '0' && s[i] <= '9')
+			num = num * 10 + (s[i] - '0');
+		if (s[i] > '9' || s[i] < '0')
+			return (-1);
+		i++;
+	}
+
+	return (num);
 }
 
 /**
@@ -62,14 +62,14 @@ int custom_atoi(char *s)
  */
 char *custom_strcpy(char *dest, char *src)
 {
-    int i, len;
+	int i, len;
 
-    for (len = 0; src[len] != '\0'; len++)
-        ;
+	for (len = 0; src[len] != '\0'; len++)
+		;
 
-    for (i = 0; i <= len; i++)
-        dest[i] = src[i];
+	for (i = 0; i <= len; i++)
+		dest[i] = src[i];
 
-    return (dest);
+	return (dest);
 }
 
