@@ -11,12 +11,12 @@ int custom_putchar(char c)
 }
 
 /**
- * custom_strcmp - Compares two strings.
+ * _strcmp - Compares two strings.
  * @s1: Pointer to the first string.
  * @s2: Pointer to the second string.
  * Return: 0 if the strings are equal, a positive value otherwise.
  */
-int custom_strcmp(char *s1, char *s2)
+int _strcmp(char *s1, char *s2)
 {
 	int i = 0;
 

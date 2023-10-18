@@ -29,9 +29,9 @@ int is_builtin(char *str)
 	}
 	if ((_strcmp(str, "exit")) == 0)
 		return (0);
-	if ((_strcmp(str, "set_environment_variable")) == 0)
+	if ((_strcmp(str, "setenv")) == 0)
 		return (0);
-	if ((_strcmp(str, "unset_environment_variable")) == 0)
+	if ((_strcmp(str, "unsetenv")) == 0)
 		return (0);
 	return (1);
 }
@@ -49,28 +49,28 @@ int execute_builtin(char **tokens)
 		print_environment();
 		return (0);
 	}
-	if ((_strcmp(*tokens, "set_environment_variable")) == 0)
+	if ((_strcmp(*tokens, "setenv")) == 0)
 	{
 		/* Check if the user provides the correct format */
 		if (tokens[1] && tokens[2])
 		{
-			set_environment_variable(tokens[1], tokens[2]);
+			setenv(tokens[1], tokens[2]);
 			return (0);
 		}
 		/* Otherwise, print an error message */
-		printf("Usage: set_environment_variable var_name var_value\n");
+		printf("Usage: setenv var_name var_value\n");
 		return (0);
 	}
-	if (_strcmp(*tokens, "unset_environment_variable") == 0)
+	if (_strcmp(*tokens, "unsetenv") == 0)
 	{
 		/* Check for VAR_NAME to unset */
 		if (tokens[1])
 		{
-			unset_environment_variable(tokens[1]);
+			unsetenv(tokens[1]);
 			return (0);
 		}
 		/* Otherwise, display an error message */
-		printf("Usage: unset_environment_variable VAR_NAME\n");
+		printf("Usage: unsetenv VAR_NAME\n");
 		return (0);
 	}
 
