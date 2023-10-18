@@ -10,7 +10,7 @@ void print_environment(void)
 
 	while (environ[i])
 	{
-		_puts(environ[i]);
+		print_string(environ[i]);
 		i++;
 	}
 }
