@@ -33,7 +33,7 @@ void ctrl_c_handler(int signum);
 int is_delimiter(char c, const char *delim);
 char *custom_strtok(char *src, const char *delim);
 char *_strcpy(char *dest, char *src);
-ssize_t read_line(char **str);
+ssize_t get_line(char **str);
 int handle_path(char **tokens);
 int check_file_exists(char *s);
 char *build_executable_path(char **tokens);
