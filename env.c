@@ -12,7 +12,7 @@ int set_environment_variable(char *var_name, char *var_value)
 	size_t name_len;
 	char *new_var;
 
-	name_len = _strlen(var_name);
+	name_len = string_length(var_name);
 	i = 0;
 
 	/* Update an existing variable if it exists */
@@ -57,7 +57,7 @@ char *build_variable(char *var_name, char *var_value)
 	char *new_var;
 	size_t var_len;
 
-	var_len = _strlen(var_name) + _strlen(var_value) + 2;
+	var_len = string_length(var_name) + string_length(var_value) + 2;
 	new_var = malloc(sizeof(char) * var_len);
 
 	if (new_var == NULL)
@@ -87,7 +87,7 @@ int unset_environment_variable(char *var_name)
 	char **env_temp;
 	size_t name_len;
 
-	name_len = _strlen(var_name);
+	name_len = string_length(var_name);
 
 	while (environ[i])
 	{
