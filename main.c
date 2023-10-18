@@ -16,13 +16,13 @@ int main(int argc, char *argv[])
 
 	(void)argc;
 
-	signal(SIGINT, ctrlc);
+	signal(SIGINT, ctrl_c_handler);
 	status = 0;
 
 	while (status == 0)
 	{
 		prompt();
-		line = get_line();
+		line = read_line();
 
 		if (_strcmp(line, "\n") == 0)
 		{
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 			free(line);
 			continue;
 		}
-		tokens = _strtotokens(line);
+		tokens = string_tokenize(line);
 
 		if (tokens[0] == NULL)
 		{

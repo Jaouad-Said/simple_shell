@@ -31,11 +31,11 @@ int custom_strcmp(char *s1, char *s2)
 }
 
 /**
- * custom_atoi - Custom atoi function converts a string to an integer.
+ * c_atoi - Custom atoi function converts a string to an integer.
  * @s: The input string.
  * Return: The converted number if successful.
  */
-int custom_atoi(char *s)
+int c_atoi(char *s)
 {
 	int i = 0;
 	unsigned int num = 0;
@@ -53,14 +53,14 @@ int custom_atoi(char *s)
 }
 
 /**
- * customstring_copy - Copies the string pointed to by src,
+ * string_copy - Copies the string pointed to by src,
  * including the terminating null byte (\0),
  * to the buffer pointed to by dest.
  * @dest: Copy source to this buffer.
  * @src: This is the source to copy.
  * Return: Copy of the original source.
  */
-char *customstring_copy(char *dest, char *src)
+char *string_copy(char *dest, char *src)
 {
 	int i, len;
 

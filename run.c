@@ -15,16 +15,16 @@ int run(char **tokens, char *args)
 	int status;
 	char *path;
 
-	if (_isBuiltIn(*tokens) == 0)
+	if (is_builtIn(*tokens) == 0)
 	{
-		status = _executeBuiltIn(tokens);
+		status = execute_builtin(tokens);
 		return (status);
 	}
 
-	path = path_builder(tokens);
+	path = build_executable_path(tokens);
 	if (path != NULL)
 	{
-		status = execute2(tokens, path, args);
+		status = execute_with_path(tokens, path, args);
 		return (status);
 	}
 

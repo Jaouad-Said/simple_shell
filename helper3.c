@@ -106,11 +106,11 @@ ssize_t get_line(char **str)
 }
 
 /**
- * string_copy - Duplicates a string.
+ * string_duplicate - Duplicates a string.
  * @str: The string to duplicate.
  * Return: Pointer to the duplicated string in allocated memory.
  */
-char *string_copy(char *str)
+char *string_duplicate(char *str)
 {
 	char *duplicate_str;
 	int i, len = 0;
