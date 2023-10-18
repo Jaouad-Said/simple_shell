@@ -25,11 +25,11 @@ char *build_executable_path(char **tokens)
 	char *finalPath1;
 	char *finalPath2;
 
-	finalPath1 = _strcat(path1, tokens[0]);
+	finalPath1 = string_concatenate(path1, tokens[0]);
 
 	if ((check_file_exists(finalPath1) == 0))
 		return (finalPath1);
-	finalPath2 = _strcat(path2, tokens[0]);
+	finalPath2 = string_concatenate(path2, tokens[0]);
 	if ((check_file_exists(finalPath2) == 0))
 		return (finalPath2);
 
@@ -62,9 +62,9 @@ int execute_with_path(char **tokens, char *path, char *args)
 
 		if (execve(tokens[0], tokens, NULL) == -1)
 		{
-			error_msg1 = _strcat(*tokens, ": No such file or directory\n");
-			error_msg2 = _strcat(args, ":");
-			error_msg3 = _strcat(error_msg2, error_msg1);
+			error_msg1 = string_concatenate(*tokens, ": No such file or directory\n");
+			error_msg2 = string_concatenate(args, ":");
+			error_msg3 = string_concatenate(error_msg2, error_msg1);
 			write(STDERR_FILENO, error_msg3, _strlen(error_msg3));
 			free(tokens);
 			exit(EXIT_FAILURE);
