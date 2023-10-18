@@ -41,7 +41,7 @@ int run(char **tokens, char *args)
 			err1 = string_concatenate(*tokens, ": No such file or directory\n");
 			err2 = string_concatenate(args, ":");
 			err3 = string_concatenate(err2, err1);
-			write(STDERR_FILENO, err3, _strlen(err3));
+			write(STDERR_FILENO, err3, string_length(err3));
 			free(tokens);
 			exit(EXIT_FAILURE);
 		}
