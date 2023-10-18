@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * custom_putchar - Writes the character 'c' to the standard output.
+ * _putchar - Writes the character 'c' to the standard output.
  * @c: The character to print.
  * Return: On success - 1.
  */
-int custom_putchar(char c)
+int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
