@@ -54,7 +54,7 @@ int execute_builtin(char **tokens)
 		/* Check if the user provides the correct format */
 		if (tokens[1] && tokens[2])
 		{
-			set_environment_variable(tokens[1], tokens[2]);
+			set_environment(tokens[1], tokens[2]);
 			return (0);
 		}
 		/* Otherwise, print an error message */
@@ -66,7 +66,7 @@ int execute_builtin(char **tokens)
 		/* Check for VAR_NAME to unset */
 		if (tokens[1])
 		{
-			unset_environment_variable(tokens[1]);
+			unset_environment(tokens[1]);
 			return (0);
 		}
 		/* Otherwise, display an error message */

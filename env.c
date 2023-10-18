@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * set_environment_variable - Updates or adds an environment variable.
+ * set_environment - Updates or adds an environment variable.
  * @var_name: Variable name.
  * @var_value: Variable value.
  * Return: 0 on success, -1 on failure.
  */
-int set_environment_variable(char *var_name, char *var_value)
+int set_environment(char *var_name, char *var_value)
 {
 	int i = 0;
 	size_t name_len;
@@ -77,11 +77,11 @@ char *build_variable(char *var_name, char *var_value)
 }
 
 /**
- * unset_environment_variable - Removes an environment variable.
+ * unset_environment - Removes an environment variable.
  * @var_name: Variable name.
  * Return: 0 if successful, -1 on failure.
  */
-int unset_environment_variable(char *var_name)
+int unset_environment(char *var_name)
 {
 	int i = 0;
 	char **env_temp;
